@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Bit\AppyPay\InterfaceAdapters\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use Bit\AppyPay\Core\Contracts\PaymentGatewayPort;
+use Bit\AppyPay\Core\Contracts\PaymentGatewayPortInterface;
 use Bit\AppyPay\Adapters\AppyPay\GatewayFactory;
 
 final class AppyPayServiceProvider extends ServiceProvider
@@ -13,7 +13,7 @@ final class AppyPayServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/config/appypay.php', 'appypay');
 
-        $this->app->bind(PaymentGatewayPort::class, function () {
+        $this->app->bind(PaymentGatewayPortInterface::class, function () {
             $cfg = config('appypay');
             return GatewayFactory::make(
                 version:  $cfg['version']   ?? 'v1',

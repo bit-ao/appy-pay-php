@@ -3,18 +3,28 @@ declare(strict_types=1);
 
 namespace Bit\AppyPay\Adapters\AppyPay\Common\Mappers;
 
-use Bit\AppyPay\Core\Domain\Entities\Application;
+use Bit\AppyPay\Core\Application\Dto\Application\ApplicationDto;
+use Bit\AppyPay\Core\Application\Dto\Application\ApplicationPageOutput;
+use Exception;
 
 final class ApplicationMapper
 {
-    public static function fromArray(array $d): Application
+    public static function list(array $d): ApplicationPageOutput
     {
-        return new Application(
-            id: (string)($d['id'] ?? $d['app_id'] ?? ''),
-            name: (string)($d['name'] ?? ''),
-            credentials: isset($d['credentials']) && is_array($d['credentials']) ? $d['credentials'] : null,
-            raw: $d,
-
+        return new ApplicationPageOutput(
+            totalCount:   (int)($d['totalCount'] ?? 0),
+            hasMorePages: (bool)($d['hasMorePages'] ?? false),
+            applications: array_map(function ($item){
+            return self::one($item);
+        }, (array)($d['applications'] ?? [])),
         );
+    }
+
+    /**
+     * @throws Exception
+     */
+    public static function one(array $d): ApplicationDto
+    {
+        return ApplicationDto::fromArray($d);
     }
 }

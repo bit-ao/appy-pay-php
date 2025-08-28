@@ -56,7 +56,7 @@ APPYPAY_API_SECRET=seu_secret
 <?php
 
 use Bit\AppyPay\Adapters\AppyPay\GatewayFactory;
-use Bit\AppyPay\Core\Application\DTO\Payments\CreateChargeInput;
+use Bit\AppyPay\Core\Application\Dto\Payments\CreateChargeInput;
 use Bit\AppyPay\Core\Domain\ValueObjects\Money;
 
 $gateway = GatewayFactory::make(
@@ -103,7 +103,7 @@ Identificadores aceites: **UMM**, **REF**, **FTBAI**, **GPO**, **eTPA**, **SDD**
 
 ### Exemplo: criar REF com expiração
 ```php
-use Bit\AppyPay\Core\Application\DTO\Payments\{CreateChargeInput, CreateChargeOptions};
+use Bit\AppyPay\Core\Application\Dto\Payments\{CreateChargeInput, CreateChargeOptions};
 use Bit\AppyPay\Core\Domain\ValueObjects\{Money, PaymentMethod};
 
 $input = new CreateChargeInput(

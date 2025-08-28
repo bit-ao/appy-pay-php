@@ -2,7 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Bit\AppyPay\Adapters\AppyPay\GatewayFactory;
-use Bit\AppyPay\Core\Application\DTO\Payments\{CreateChargeInput, CreateChargeOptions};
+use Bit\AppyPay\Core\Application\Dto\Payments\{CreateChargeInput, CreateChargeOptions};
 use Bit\AppyPay\Core\Domain\ValueObjects\{Money, PaymentMethod};
 
 $gateway = GatewayFactory::make('v1', 'https://api.appypay.ao', 'KEY_AQUI');
