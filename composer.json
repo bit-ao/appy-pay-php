@@ -1,5 +1,5 @@
 {
-    "name": "bit/appy-pay-php",
+    "name": "bit-ao/appy-pay-php",
     "type": "library",
     "require": {
         "guzzlehttp/guzzle": "^7.10",

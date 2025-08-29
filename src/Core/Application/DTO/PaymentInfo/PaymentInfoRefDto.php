@@ -20,5 +20,5 @@ class PaymentInfoRefDto implements PaymentInfoInterface
             "referenceNumber"=>$this->referenceNumber,
             "dueDate"=>$this->dueDate,
         ];
-    }
+    }cg f2w
 }
