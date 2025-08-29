@@ -196,4 +196,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 phpunit.xml
+oauth_token.json
 # End of https://www.toptal.com/developers/gitignore/api/composer,phpstorm,macos,windows,linux
