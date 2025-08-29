@@ -33,7 +33,7 @@ final class ApplicationListInput
     /**
      * @return array
      */
-    #[ArrayShape(["is_active" => "bool|null", "is_default" => "bool|null", "is_enabled" => "bool|null", "limit" => "int|null", "skip" => "int|null", "payment_method" => "mixed"])] public function toQuery():array{
+    public function toQuery():array{
         return [
             "is_active"=> $this->isActive,
             "is_default"=> $this->isDefault,

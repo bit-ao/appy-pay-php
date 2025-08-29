@@ -5,7 +5,7 @@ use Bit\AppyPay\Adapters\AppyPay\Common\Mappers\ApplicationMapper;
 use Bit\AppyPay\Adapters\Http\HttpClient;
 use Bit\AppyPay\Core\Application\Dto\Application\ApplicationDto;
 use Bit\AppyPay\Core\Application\Dto\Application\ApplicationListInput;
-use Bit\AppyPay\Core\Application\Dto\Application\ApplicationPageOutput;
+use Bit\AppyPay\Core\Application\Dto\Application\ApplicationListOutput;
 use Bit\AppyPay\Core\Contracts\ApplicationPortInterface;
 use Exception;
 
@@ -18,9 +18,9 @@ class ApplicationAdapter implements ApplicationPortInterface
 
     /**
      * @param ApplicationListInput $input
-     * @return ApplicationPageOutput
+     * @return ApplicationListOutput
      */
-    public function list(ApplicationListInput $input): ApplicationPageOutput
+    public function list(ApplicationListInput $input): ApplicationListOutput
     {
         $query = http_build_query($input->toQuery());
         $res = $this->client->request('GET', 'applications?'.$query);
@@ -32,7 +32,7 @@ class ApplicationAdapter implements ApplicationPortInterface
      * @return ApplicationDto
      * @throws Exception
      */
-    public function getById(string $applicationId): ApplicationDto
+    public function get(string $applicationId): ApplicationDto
     {
         $res = $this->client->request('GET', 'applications/' . rawurlencode($applicationId));
         return ApplicationMapper::one($res);

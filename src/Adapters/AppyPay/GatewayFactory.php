@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Bit\AppyPay\Adapters\AppyPay;
 use Bit\AppyPay\Adapters\AppyPay\Common\Adapters\ApplicationAdapter;
+use Bit\AppyPay\Adapters\AppyPay\Common\Adapters\ChargeAdapter;
 use Bit\AppyPay\Adapters\AppyPay\V2\GatewayV2;
 use Bit\AppyPay\Adapters\Auth\OAuthClientCredentialsProvider;
 use Bit\AppyPay\Adapters\Auth\OAuthCredentials;
@@ -28,7 +29,8 @@ final class GatewayFactory
         $authed   = new AuthenticatedHttpClient($api, $provider);
         if (strtolower($version) == 'v2.0'){
             return new GatewayV2(
-                application:new ApplicationAdapter($authed)
+                application:new ApplicationAdapter($authed),
+                charge:new ChargeAdapter($authed)
             );
         }
         throw new \InvalidArgumentException("Versão não suportada: {$version}");

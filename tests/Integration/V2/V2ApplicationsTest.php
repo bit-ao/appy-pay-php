@@ -7,7 +7,7 @@ use Tests\Integration\Support\IntegrationTestCase;
 use Bit\AppyPay\Core\Application\Dto\Application\ApplicationListInput;
 
 /** @group integration */
-final class GatewayV2ApplicationsTest extends IntegrationTestCase
+final class V2ApplicationsTest extends IntegrationTestCase
 {
     public function test_application_list(): void
     {

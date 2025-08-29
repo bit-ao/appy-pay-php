@@ -1,21 +1,23 @@
 <?php
-namespace Bit\AppyPay\Core\Application\Dto\Application;
 
-final class ApplicationPageOutput
+
+namespace Bit\AppyPay\Core\Application\Dto\Charge;
+
+
+final class ChargeListOutput
 {
     public  int $totalCount;
     public  bool $hasMorePages;
-    public  array $applications;
-
-    /**
-     */
+    /*
+     * Charme[] $payments*/
+    public  array $payments;
     public function __construct(
         int $totalCount,
         bool $hasMorePages,
-        array $applications,
+        array $payments,
     ) {
         $this->totalCount   = $totalCount;
         $this->hasMorePages = $hasMorePages;
-        $this->applications = $applications;
+        $this->payments = $payments;
     }
 }

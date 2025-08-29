@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Bit\AppyPay\Core\Application\Dto\Application;
 use Bit\AppyPay\Core\Domain\ValueObjects\PaymentMethod;
-final class ApplicationOneInput
+final class ApplicationGetInput
 {
     public function __construct(
         public PaymentMethod $paymentMethod = PaymentMethod::GPO,

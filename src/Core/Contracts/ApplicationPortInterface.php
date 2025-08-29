@@ -6,7 +6,7 @@ namespace Bit\AppyPay\Core\Contracts;
 
 use Bit\AppyPay\Core\Application\Dto\Application\ApplicationDto;
 use Bit\AppyPay\Core\Application\Dto\Application\ApplicationListInput;
-use Bit\AppyPay\Core\Application\Dto\Application\ApplicationPageOutput;
+use Bit\AppyPay\Core\Application\Dto\Application\ApplicationListOutput;
 
 /**
  * Interface ApplicationPort
@@ -16,13 +16,13 @@ interface ApplicationPortInterface
 {
     /**
      * @param ApplicationListInput $input
-     * @return ApplicationPageOutput
+     * @return ApplicationListOutput
      */
-    public function list(ApplicationListInput $input): ApplicationPageOutput;
+    public function list(ApplicationListInput $input): ApplicationListOutput;
 
     /**
      * @param string $applicationId
      * @return ApplicationDto
      */
-    public function getById(string $applicationId): ApplicationDto;
+    public function get(string $applicationId): ApplicationDto;
 }

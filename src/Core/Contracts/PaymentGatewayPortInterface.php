@@ -1,1 +1,1 @@
-<?phpdeclare(strict_types=1);namespace Bit\AppyPay\Core\Contracts;interface PaymentGatewayPortInterface {    public function application(): ApplicationPortInterface;}
+<?phpdeclare(strict_types=1);namespace Bit\AppyPay\Core\Contracts;interface PaymentGatewayPortInterface {    public function application(): ApplicationPortInterface;    public function charge(): ChargePortInterface;}
